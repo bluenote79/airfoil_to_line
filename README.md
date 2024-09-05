@@ -1,0 +1,1 @@
+This skript adds an airfoil to fusion360 from dat-file fitting to a selected sketchline. There must be also a sketchline at right angle to this line. It directs to the nose and forces orientation of the airfoils top towards this line.
