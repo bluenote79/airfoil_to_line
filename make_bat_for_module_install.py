@@ -23,9 +23,9 @@ def run(context):
     
     py_ex = os.path.abspath(str(sys.executable))
 
-    numpy_install = f'{py_ex}.exe -m pip install --upgrade numpy'
+    numpy_install = f'{py_ex} -m pip install --upgrade numpy'
 
-    pyfoil_install = f'{py_ex}.exe -m pip install --upgrade pyfoil'
+    pyfoil_install = f'{py_ex} -m pip install --upgrade pyfoil'
 
     text1 = "start cmd /K " + numpy_install
     text2 = "start cmd /K " + pyfoil_install
