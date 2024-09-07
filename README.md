@@ -20,7 +20,7 @@ You can either reinstall the requirements each time an update comes up or use re
 
 To set it up I wrote another script that provides the paths and writhes them to bat-files on the desktop. In some cases you can install using the text commands in Fusion but in some cases Fusion then restarts an it doesn’t work.
 
-Here are the steps to get it run:
+### Here are the steps to get it run:
 1.	In Fusion 360 go to Utilities > ADD-INS > Skripts and Add-Ins.
 2.	Create a new script (chose Script, Python and airfoil_to_line as Script Name
 3.	Right click on the script > Open file location
