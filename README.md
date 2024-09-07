@@ -9,7 +9,7 @@
 </picture>
 
 Everyone using Fusion 360 probably knows this error message: *“The selected rail dos not touch all of the profiles.”*
-To avoid this when lofting airfoils I am working on a tool to import airfoils to Fusion 360 in a way that they are placed exactly where I want them to be.
+To avoid this when lofting airfoils I am working on this tool to import airfoils to Fusion 360 in a way that they are placed exactly where I want them to be.
 Two construction lines are necessary for that to work, one that will go from the nose to the tail or the point right between the endpoints if the airfoil is not closed. The second lines starting point must be coincident to the first lines starting point and the lines. The lines must have perpendicular constraints. The coincidence shows the script where to put the nose, the second line directs towards the upper side of the airfoil.
 
 The size of the gab at the tail can also be modified by the script, so you can get a constant size if you want to.
