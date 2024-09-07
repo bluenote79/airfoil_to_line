@@ -13,7 +13,6 @@ app = adsk.core.Application.get()
 ui = None
 ui  = app.userInterface
 
-#PATHS_DICT = json.loads(app.executeTextCommands(u'paths.get'))
 
 import sys
 import subprocess
@@ -28,20 +27,16 @@ def run(context):
         directory = "lib"
         parent_dir = script_path
         path_l = os.path.join(parent_dir, directory)
-        #ui.messageBox(path_l)
+
     except:
 
-        #ui.messageBox("lib directory already exists")
         pass
     
     try:
         
         py_exe = sys.executable
-
         
         py_ex = os.path.abspath(str(sys.executable))
-
-        #ui.messageBox(str(py_ex))
 
         pyfoil_install = f'{py_ex} -m pip install --target "{path_l}" --upgrade pyfoil'
 
