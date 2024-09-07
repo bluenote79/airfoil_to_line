@@ -35,8 +35,8 @@ def run(context):
 
     file = open(filename, 'w')
     file.close()
-    filea = open(filename, "a")
-    filea.write(text)
+    file = open(filename, "a")
+    file.write(text)
 
 
    
