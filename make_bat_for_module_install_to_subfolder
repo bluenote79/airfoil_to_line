@@ -17,15 +17,11 @@ import sys
 import subprocess
 
 
-# abslolute_path = os.path.abspath("~/lib").as_posix()
-
 def run(context):
 
     # get path of skript
     script_path = os.path.dirname(os.path.abspath(__file__))
     
-    #spwin = script_path.as_posix()
-    #sp = str(script_path).replace("//", "\\")
     try:   
         directory = "lib"
         parent_dir = script_path
@@ -45,9 +41,9 @@ def run(context):
 
         #ui.messageBox(str(py_ex))
 
-        numpy_install = f'{py_ex}.exe -m pip install --target "{path_l}" --upgrade numpy'
+        numpy_install = f'{py_ex} -m pip install --target "{path_l}" --upgrade numpy'
 
-        pyfoil_install = f'{py_ex}.exe -m pip install --target "{path_l}" --upgrade pyfoil'
+        pyfoil_install = f'{py_ex} -m pip install --target "{path_l}" --upgrade pyfoil'
 
         text1 = "start cmd /K " + numpy_install
         text2 = "start cmd /K " + pyfoil_install
