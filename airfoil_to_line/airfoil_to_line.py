@@ -1,7 +1,6 @@
 import adsk.core, adsk.fusion, adsk.cam, traceback
 import math as math
 import os
-
 from math import e
 from math import pi
 import sys
