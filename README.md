@@ -3,8 +3,7 @@
 ## This skript adds an airfoil to Fusion 360 from dat-file fitting to a selected sketchlines.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/bluenote79/airfoil_to_line/blob/main/pics/demo.gif">
-    <source media="(prefers-color-scheme: light)" srcset="https://github.com/bluenote79/airfoil_to_line/blob/main/pics/demo.gif">
+
   <img alt="Illustrates usage of airfoil to line script" src="https://github.com/bluenote79/airfoil_to_line/blob/main/pics/demo.gif">
 
 </picture>
@@ -12,9 +11,6 @@
 Everyone using Fusion 360 probably knows this error message: *“The selected rail dos not touch all of the profiles.”*
 To avoid this when lofting airfoils I am working on a tool to import airfoils to Fusion 360 in a way that they are placed exactly where I want them to be.
 Two construction lines are necessary for that to work, one that will go from the nose to the tail or the point right between the endpoints if the airfoil is not closed. The second lines starting point must be coincident to the first lines starting point and the lines. The lines must have perpendicular constraints. The coincidence shows the script where to put the nose, the second line directs towards the upper side of the airfoil.
-
-https://github.com/bluenote79/airfoil_to_line/blob/main/pics/image.jpg
-
 
 The size of the gab at the tail can also be modified by the script, so you can get a constant size if you want to.
 Also you can decide to generate new points by cubic iteration. Here the tool uses the **pyfoil** (https://github.com/airgproducts/pyfoil).
