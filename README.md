@@ -8,8 +8,7 @@ Two construction lines are necessary for that to work, one that will go from the
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github.com/bluenote79/airfoil_to_line/blob/main/pics/image.jpg">
-  <source media="(prefers-color-scheme: light)" srcset="https://github.com/bluenote79/airfoil_to_line/blob/main/pics/image.jpg">
-  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="https://github.com/bluenote79/airfoil_to_line/blob/main/pics/image.jpg">
+
 </picture>
 
 
