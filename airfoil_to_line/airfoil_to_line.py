@@ -11,9 +11,19 @@ import xml.etree.ElementTree as XMLTree
 import logging
 
 
-import numpy as np
+
+script_path = os.path.dirname(os.path.abspath(__file__))
+
+directory = "lib"
+parent_dir = script_path
+path_l = os.path.join(parent_dir, directory)
+
+
+sys.path.append(path_l)
+
 import euklid
 import pyfoil
+
 
 
 # Global set of event handlers to keep them referenced for the duration of the command
@@ -46,9 +56,10 @@ class FoilCommandExecuteHandler(adsk.core.CommandEventHandler):
             input4 = inputs[3]
             input5 = inputs [4]
             input6 = inputs [5]
+            input7 = inputs [6]
 
             foil = Foil()
-            foil.Execute(sel0, sel1, input3.value, input4.value, 1, input5.value, input6.value);
+            foil.Execute(sel0, sel1, input3.value, input4.value, 1, input5.value, input6.value, input7.value);
         except:
             if ui:
                 ui.messageBox('Failed:\n{}'.format(traceback.format_exc()))
@@ -74,9 +85,7 @@ class AirfoilF(pyfoil.Airfoil):
     https://github.com/airgproducts/pyfoil.git
     """
 
-    def __init__(self, p_file, profile):
-        super().__init__(p_file, profile)
-
+ 
     def read_angle(self):
         
         diff = (self.curve.nodes[0] + self.curve.nodes[-1]) * 0.5
@@ -166,7 +175,7 @@ class AirfoilF(pyfoil.Airfoil):
         for i in range(len(self.curve.nodes)):
             self.curve.nodes[i][1] = y_norm[i]
 
-        half_gap = np.round(tail_gap / (2 * root_length), 7)
+        half_gap = round(tail_gap / (2 * root_length), 7)
 
         self.curve.nodes[0][1] = half_gap
         self.curve.nodes[-1][1] = -half_gap
@@ -175,7 +184,7 @@ class AirfoilF(pyfoil.Airfoil):
 
 
 class Foil:
-    def Execute(self, sel0, sel1, endleiste_soll, faktor_exponent, y_scale, resample_it, number_pt_crv):
+    def Execute(self, sel0, sel1, endleiste_soll, faktor_exponent, y_scale, resample_it, number_pt_crv, break_it):
 
        
         def scale_sketch(profil_neu):
@@ -290,7 +299,7 @@ class Foil:
              
         # use xpoil class methodes
         foilAngle = AirfoilF.import_from_dat(filename)
-        alpha = np.round(AirfoilF.read_angle(foilAngle) + math.pi / 2, 2)
+        alpha = round(AirfoilF.read_angle(foilAngle) + math.pi / 2, 2)
         foilf = AirfoilF.import_from_dat(filename).normalized(False)
 
         
@@ -410,7 +419,12 @@ class Foil:
 
         # make sure upper side is oriented towards the side of the vertical line
         if  pointminusdist < pointplusdist:
-            xtemp, ytemp = list(zip(*list3))
+            try:
+                xtemp, ytemp = list(zip(*list3))
+            except:
+                xtemp = [list3[i][0] for i in range(len(list3))]
+                ytemp = [list3[j][1] for j in range(len(list3))]
+
             list4 = [(xtemp[i], -ytemp[i]) for i in range(len(xtemp))]
             list3 = list4
         else:
@@ -436,11 +450,12 @@ class Foil:
 
         sketchAirfoil2.deleteMe()
 
-        try:
-            curveAirfoil.breakCurve(point_nose.item(0), createConstraints=True)
-        except:
-            ui.messageBox(f"Curve must be broken manually")
-        
+        if break_it is True:
+            try:
+                curveAirfoil.breakCurve(point_nose.item(0), createConstraints=True)
+            except:
+                ui.messageBox(f"Curve must be broken manually")
+    
        
 
 class FoilValidateInputHandler(adsk.core.ValidateInputsEventHandler):
@@ -489,15 +504,14 @@ class FoilCommandCreatedHandler(adsk.core.CommandCreatedEventHandler):
             # Create the inputs       
             i1 = inputs.addSelectionInput("SketchLine", "Sehnenlinie", "Please select line")
             i1.addSelectionFilter(adsk.core.SelectionCommandInput.SketchLines)
-            i1.addSelectionFilter(adsk.core.SelectionCommandInput.SketchLines)
             i2 = inputs.addSelectionInput("SketchLine", "ortogonale oben", "Please select line")
-            i2.addSelectionFilter(adsk.core.SelectionCommandInput.SketchLines)
             i2.addSelectionFilter(adsk.core.SelectionCommandInput.SketchLines)
             i3 = inputs.addValueInput("Endleiste Dicke", "Endleiste Dicke", "mm", adsk.core.ValueInput.createByReal(0.1))
             i4 = inputs.addValueInput("Exponent", "Exponent", "", adsk.core.ValueInput.createByReal(10))
-            #i5 = inputs.addValueInput("y-aufdiken", "y-aufdicken Faktor", "", adsk.core.ValueInput.createByReal(1.0))
             i5 = inputs.addBoolValueInput("checkbox", "Punkte neu verteilen", True, "", False)
             i6 = inputs.addValueInput("ungerade Anzahl Punkte", "ungerade Anzahl Punkte", "", adsk.core.ValueInput.createByString("121"))
+            i7 = inputs.addBoolValueInput("checkbox", "Kurve aufbrechen", True, "", False)
+            
 
         except:
             if ui:
