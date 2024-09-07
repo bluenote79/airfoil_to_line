@@ -1,6 +1,6 @@
 # Airfoil to line
 
-## This skript adds an airfoil to Fusion 360 from dat-file fitting to a selected sketchlines.
+## This skript adds an airfoil to Fusion 360 from dat-file fitting to selected sketchlines.
 
 <picture>
 
