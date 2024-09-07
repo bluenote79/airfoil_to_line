@@ -3,9 +3,9 @@
 ## This skript adds an airfoil to Fusion 360 from dat-file fitting to a selected sketchlines.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/bluenote79/airfoil_to_line/blob/main/pics/image.jpg">
-    <source media="(prefers-color-scheme: light)" srcset="https://github.com/bluenote79/airfoil_to_line/blob/main/pics/image.jpg">
-  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="https://github.com/bluenote79/airfoil_to_line/blob/main/pics/image.jpg">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/bluenote79/airfoil_to_line/blob/main/pics/demo.gif">
+    <source media="(prefers-color-scheme: light)" srcset="https://github.com/bluenote79/airfoil_to_line/blob/main/pics/demo.gif">
+  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="https://github.com/bluenote79/airfoil_to_line/blob/main/pics/demo.gif">
 
 </picture>
 
