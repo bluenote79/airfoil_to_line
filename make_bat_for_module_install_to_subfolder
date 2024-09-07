@@ -1,5 +1,7 @@
-#Author-
-#Description-
+"""
+This skript reads the paths from Fusion 360 and creates bat-Files on windows desktop to install numpy and pyfoil to a subfolder "lib" of the script folder. The folder will be
+appendet to path by airfoil_to_line so you won't have to reinstall after changes made do to fusion 360 updates.
+"""
 
 import adsk.core, adsk.fusion, adsk.cam, traceback
 
