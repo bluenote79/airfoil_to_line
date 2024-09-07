@@ -1,23 +1,16 @@
 import adsk.core, adsk.fusion, adsk.cam, traceback
 import math as math
 import os
-import re
+
 from math import e
 from math import pi
 import sys
-import subprocess
-from typing import List
-import xml.etree.ElementTree as XMLTree
-import logging
-
 
 
 script_path = os.path.dirname(os.path.abspath(__file__))
-
 directory = "lib"
 parent_dir = script_path
 path_l = os.path.join(parent_dir, directory)
-
 
 sys.path.append(path_l)
 
@@ -38,7 +31,6 @@ design = adsk.fusion.Design.cast(product)
 root = design.rootComponent
 sketches = root.sketches
 planes = root.constructionPlanes
-global profil_n
 
 class FoilCommandExecuteHandler(adsk.core.CommandEventHandler):
     def __init__(self):
