@@ -1,5 +1,5 @@
 """
-This skript reads the paths from Fusion 360 and creates bat-Files on windows desktop to install numpy and pyfoil. This version installs the modules to Fusion 360 python so you have
+This skript reads the paths from Fusion 360 and creates bat-Files on windows desktop to install pyfoil. This version installs the modules to Fusion 360 python so you have
 to repeat the process when the path is changed by an update.
 """
 
