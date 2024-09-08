@@ -72,7 +72,7 @@ class FoilCommandDestroyHandler(adsk.core.CommandEventHandler):
 class AirfoilF(pyfoil.Airfoil):
     
     """
-    AirfoilF inheritance from pyfoil Airfoil which is licensed under GNU v3
+    AirfoilF inheritance from pyfoil Airfoil which is licensed under GPL-V3
     https://github.com/airgproducts/pyfoil.git
     https://pypi.org/project/pyfoil/
     """
