@@ -286,6 +286,8 @@ class Foil:
                 ende = line_sehne.startSketchPoint
                 start2 = line_oben.startSketchPoint
                 ende2 = line_oben.endSketchPoint
+        else:
+            ui.MessageBox("The selected lines dont have coincident constraints in a point") 
         
         wurzeltiefe = line_sehne.length
              
