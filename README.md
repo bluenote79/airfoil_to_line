@@ -27,6 +27,7 @@ To set it up I wrote another script that provides the paths and writhes them to 
 4. Rename the “make_bat_for_module_install_to_subfolder.py” to “airfoil_to_line.py” an insert it in the script folder.
 5. Run the script to get the bat-file. It includes:
 start cmd /K <path to Fusions python>\python -m pip install --target <path to lib folder in scriptfolder> --upgrade pyfoil
-6. Shut down Fusion 360
-7. Run the bat file
-8. Run Fusion an overwrite the script with the aiforil_to_line.py script.
+6. Shut down Fusion 360.
+7. Check the code in the bat file. Sometimes it happens that it gets the path to fusion360.exe. In that case you have to susbstitute fusion360.exe by Python\python
+8. Run the bat file
+9. Run Fusion an overwrite the script with the aiforil_to_line.py script.
